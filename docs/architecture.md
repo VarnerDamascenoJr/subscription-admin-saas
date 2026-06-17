@@ -14,13 +14,18 @@
 ## Suggested Application Layout
 
 ```text
+apps/api
+  src/
+    config/
+    lib/
+    modules/
+    routes/
 apps/web
   src/
     app/
     components/
     features/
     lib/
-    server/
 ```
 
 ## Initial Domain Entities
@@ -44,3 +49,4 @@ apps/web
 - reusable admin UI patterns
 - clear separation between domain logic and presentation
 - production-friendly configuration
+- modular API boundaries from the start
