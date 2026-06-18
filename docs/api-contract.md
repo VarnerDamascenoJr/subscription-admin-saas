@@ -43,3 +43,4 @@
 - all endpoints will be organization-scoped
 - all write endpoints will be authenticated
 - role checks will be enforced at the service layer
+- Prisma will be the persistence layer behind the service modules

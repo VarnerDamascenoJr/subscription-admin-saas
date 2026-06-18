@@ -2,8 +2,8 @@
 
 ## Foundation
 
-- choose ORM: Prisma or Drizzle
-- choose auth strategy: Better Auth, NextAuth, or Clerk
+- define the Prisma schema and first migration
+- choose auth strategy: NextAuth or Clerk
 - upgrade local environment to modern Node.js
 - install backend dependencies
 - scaffold Next.js application

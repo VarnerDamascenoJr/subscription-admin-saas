@@ -46,6 +46,7 @@ apps/web
 
 - type safety across the stack
 - strong server-side data modeling
+- Prisma as the source of truth for the relational model
 - reusable admin UI patterns
 - clear separation between domain logic and presentation
 - production-friendly configuration
