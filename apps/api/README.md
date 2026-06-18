@@ -17,8 +17,8 @@ This service is the backend foundation for the Subscription Admin SaaS product.
 - Fastify
 - Zod
 - PostgreSQL
-- Drizzle or Prisma
+- Prisma
 
 ## Status
 
-The repository currently contains the backend scaffold and domain contracts. Package installation and runtime setup will happen after the local Node.js toolchain is upgraded.
+The repository currently contains the backend scaffold, domain contracts, and the initial Prisma schema. Package installation and runtime setup will happen after the local Node.js toolchain is upgraded.

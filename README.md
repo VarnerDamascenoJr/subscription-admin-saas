@@ -39,9 +39,9 @@ Core outcomes:
 - Frontend: Next.js + TypeScript
 - Backend: Node.js + TypeScript API
 - Database: PostgreSQL
-- ORM: Drizzle or Prisma
+- ORM: Prisma
 - Validation: Zod
-- Auth: Better Auth, NextAuth, or Clerk
+- Auth: NextAuth or Clerk
 - Payments: Stripe
 - Testing: Vitest + Playwright
 - Infra: Docker
