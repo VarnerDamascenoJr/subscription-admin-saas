@@ -37,10 +37,11 @@ Core outcomes:
 ## Planned Stack
 
 - Frontend: Next.js + TypeScript
-- Backend: Next.js API routes or route handlers
+- Backend: Node.js + TypeScript API
 - Database: PostgreSQL
-- ORM: Prisma or Drizzle
-- Auth: NextAuth or Clerk
+- ORM: Drizzle or Prisma
+- Validation: Zod
+- Auth: Better Auth, NextAuth, or Clerk
 - Payments: Stripe
 - Testing: Vitest + Playwright
 - Infra: Docker
@@ -49,6 +50,7 @@ Core outcomes:
 
 ```text
 apps/
+  api/
   web/
 docs/
 ```
@@ -56,12 +58,13 @@ docs/
 ## Initial Roadmap
 
 1. define product entities and flows
-2. scaffold frontend and backend app
-3. implement authentication and roles
-4. build customer and subscription modules
-5. build invoice and account activity flows
-6. add tests, polish, and deployment
+2. scaffold backend foundation
+3. scaffold frontend app
+4. implement authentication and roles
+5. build customer and subscription modules
+6. build invoice and account activity flows
+7. add tests, polish, and deployment
 
 ## Status
 
-This repository currently contains the product foundation and architecture documents. The app scaffold will be added in the next step after the environment is upgraded to a modern Node.js toolchain.
+This repository now contains the product foundation, architecture documents, and an initial backend scaffold. Dependency installation is still pending a modern local Node.js toolchain.
