@@ -11,7 +11,11 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate:dev": "prisma migrate dev",
     "prisma:seed": "prisma db seed",
-    "prisma:studio": "prisma studio"
+    "prisma:studio": "prisma studio",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "prisma db seed",
+    "db:studio": "prisma studio"
   },
   "engines": {
     "node": ">=20.0.0"
