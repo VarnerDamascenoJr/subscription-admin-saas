@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import { registerCustomerRoutes } from "./routes/customers.js";
 import { registerHealthRoutes } from "./routes/health.js";
 
 export function createApp() {
@@ -14,6 +15,7 @@ export function createApp() {
   });
 
   registerHealthRoutes(app);
+  registerCustomerRoutes(app);
 
   return app;
 }
