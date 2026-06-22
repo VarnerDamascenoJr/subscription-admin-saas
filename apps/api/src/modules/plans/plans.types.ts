@@ -1,5 +1,6 @@
-export type BillingInterval = "monthly" | "yearly";
-export type PlanStatus = "draft" | "active" | "archived";
+import type { BillingInterval, PlanStatus } from "../../lib/domain/plan.js";
+
+export type { BillingInterval, PlanStatus } from "../../lib/domain/plan.js";
 
 export interface Plan {
   id: string;

@@ -1,9 +1,6 @@
-export type SubscriptionStatus =
-  | "trialing"
-  | "active"
-  | "past_due"
-  | "paused"
-  | "canceled";
+import type { SubscriptionStatus } from "../../lib/domain/subscription-status.js";
+
+export type { SubscriptionStatus } from "../../lib/domain/subscription-status.js";
 
 export interface Subscription {
   id: string;

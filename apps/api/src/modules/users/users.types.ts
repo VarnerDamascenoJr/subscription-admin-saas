@@ -1,4 +1,6 @@
-export type UserRole = "admin" | "manager" | "support" | "viewer";
+import type { UserRole } from "../../lib/domain/user-role.js";
+
+export type { UserRole } from "../../lib/domain/user-role.js";
 
 export interface User {
   id: string;
