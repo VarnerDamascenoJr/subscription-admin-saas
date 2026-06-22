@@ -1,29 +1,11 @@
-import type { Customer as PrismaCustomer, CustomerStatus as PrismaCustomerStatus } from "@prisma/client";
-import type { Customer, CustomerStatus } from "./customers.types.js";
+import type { Customer as PrismaCustomer } from "@prisma/client";
+import {
+  mapCustomerStatusToDomain,
+  mapCustomerStatusToPrisma,
+} from "../../lib/domain/customer-status.js";
+import type { Customer } from "./customers.types.js";
 
-const prismaToApiCustomerStatusMap: Record<PrismaCustomerStatus, CustomerStatus> = {
-  LEAD: "lead",
-  ACTIVE: "active",
-  PAST_DUE: "past_due",
-  CHURNED: "churned",
-  ARCHIVED: "archived",
-};
-
-const apiToPrismaCustomerStatusMap: Record<CustomerStatus, PrismaCustomerStatus> = {
-  lead: "LEAD",
-  active: "ACTIVE",
-  past_due: "PAST_DUE",
-  churned: "CHURNED",
-  archived: "ARCHIVED",
-};
-
-export function mapCustomerStatusToApi(status: PrismaCustomerStatus): CustomerStatus {
-  return prismaToApiCustomerStatusMap[status];
-}
-
-export function mapCustomerStatusToPrisma(status: CustomerStatus): PrismaCustomerStatus {
-  return apiToPrismaCustomerStatusMap[status];
-}
+export { mapCustomerStatusToPrisma } from "../../lib/domain/customer-status.js";
 
 export function mapCustomerToApi(customer: PrismaCustomer): Customer {
   return {
@@ -32,7 +14,7 @@ export function mapCustomerToApi(customer: PrismaCustomer): Customer {
     ...(customer.legalName ? { legalName: customer.legalName } : {}),
     email: customer.email,
     ...(customer.phone ? { phone: customer.phone } : {}),
-    status: mapCustomerStatusToApi(customer.status),
+    status: mapCustomerStatusToDomain(customer.status),
     ...(customer.ownerUserId ? { ownerUserId: customer.ownerUserId } : {}),
     ...(customer.notes ? { notes: customer.notes } : {}),
     createdAt: customer.createdAt.toISOString(),

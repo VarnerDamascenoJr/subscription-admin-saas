@@ -1,4 +1,6 @@
-export type InvoiceStatus = "draft" | "open" | "paid" | "overdue" | "void";
+import type { InvoiceStatus } from "../../lib/domain/invoice-status.js";
+
+export type { InvoiceStatus } from "../../lib/domain/invoice-status.js";
 
 export interface Invoice {
   id: string;

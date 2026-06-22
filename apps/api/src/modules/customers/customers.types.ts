@@ -1,4 +1,6 @@
-export type CustomerStatus = "lead" | "active" | "past_due" | "churned" | "archived";
+import type { CustomerStatus } from "../../lib/domain/customer-status.js";
+
+export type { CustomerStatus } from "../../lib/domain/customer-status.js";
 
 export interface CustomersListFilters {
   organizationId: string;

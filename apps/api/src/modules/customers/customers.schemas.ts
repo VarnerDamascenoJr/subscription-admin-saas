@@ -1,13 +1,8 @@
 import { z } from "zod";
+import { CUSTOMER_STATUSES } from "../../lib/domain/customer-status.js";
 import { ALLOWED_PAGE_SIZES } from "../../lib/utils/pagination.js";
 
-export const customerStatusSchema = z.enum([
-  "lead",
-  "active",
-  "past_due",
-  "churned",
-  "archived",
-]);
+export const customerStatusSchema = z.enum(CUSTOMER_STATUSES);
 
 export const customerIdParamsSchema = z.object({
   customerId: z.string().uuid(),
