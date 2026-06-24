@@ -1,36 +1,18 @@
-import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { z } from "zod";
+import type { FastifyInstance } from "fastify";
 import {
   createCustomerBodySchema,
   customerIdParamsSchema,
   listCustomersQuerySchema,
   updateCustomerBodySchema,
-} from "../modules/customers/customers.schemas.js";
-import { customersService } from "../modules/customers/customers.service.js";
-
-const organizationHeadersSchema = z.object({
-  "x-organization-id": z.string().uuid(),
-});
+} from "../../modules/customers/customers.schemas.js";
+import { customersService } from "../../modules/customers/customers.service.js";
+import type { UpdateCustomerInput } from "../../modules/customers/customers.types.js";
+import { getOrganizationId } from "./organization.js";
 
 function omitUndefined<T extends Record<string, unknown>>(value: T) {
   return Object.fromEntries(
     Object.entries(value).filter(([, entryValue]) => entryValue !== undefined),
   );
-}
-
-function getOrganizationId(request: FastifyRequest, reply: FastifyReply) {
-  const parsedHeaders = organizationHeadersSchema.safeParse(request.headers);
-
-  if (!parsedHeaders.success) {
-    reply.status(400).send({
-      message:
-        "Organization is not configured for this request. Provide a valid x-organization-id header.",
-      issues: parsedHeaders.error.issues,
-    });
-    return null;
-  }
-
-  return parsedHeaders.data["x-organization-id"];
 }
 
 export function registerCustomerRoutes(app: FastifyInstance) {
@@ -152,7 +134,7 @@ export function registerCustomerRoutes(app: FastifyInstance) {
       const customer = await customersService.updateCustomer(
         organizationId,
         parsedParams.data.customerId,
-        omitUndefined(parsedBody.data) as import("../modules/customers/customers.types.js").UpdateCustomerInput,
+        omitUndefined(parsedBody.data) as UpdateCustomerInput,
       );
 
       if (!customer) {

@@ -1,21 +1,14 @@
 import Fastify from "fastify";
-import { registerCustomerRoutes } from "./routes/customers.js";
-import { registerHealthRoutes } from "./routes/health.js";
+import { registerPrivateRoutes } from "./routes/private/index.js";
+import { registerPublicRoutes } from "./routes/public/index.js";
 
 export function createApp() {
   const app = Fastify({
     logger: true,
   });
 
-  app.get("/", async () => {
-    return {
-      service: "subscription-admin-saas-api",
-      status: "ok",
-    };
-  });
-
-  registerHealthRoutes(app);
-  registerCustomerRoutes(app);
+  registerPublicRoutes(app);
+  registerPrivateRoutes(app);
 
   return app;
 }
